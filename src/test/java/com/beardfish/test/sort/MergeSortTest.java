@@ -13,7 +13,7 @@ public class MergeSortTest {
 
     @Test
     public void sortTestMergeSortInt() {
-        List<Integer> numbers = new LinkedList<Integer>()  {{
+       List<Integer> numbers = new LinkedList<Integer>()  {{
             add(1);
             add(10);
             add(27);
