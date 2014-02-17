@@ -21,7 +21,7 @@ public class MergeSort implements IInlineSort{
 		if(p<r) {
 			int q = (p+r)/2;
 			mergeSort(l,p,q,comparator);
-			mergeSort(l,q+1,p,comparator);
+			mergeSort(l,q+1,r,comparator);
 			merge(l,p,q,r,comparator);
 			
 		}
