@@ -1,0 +1,15 @@
+<project>
+    <target name="clean">
+        <delete dir="target"/>
+    </target>
+    
+    <target name="compile">
+        <mkdir dir="target/classes"/>
+        <javac srcdir="src" destdir="target/classes"/>
+    </target>
+    
+    <target name="jar">
+        <mkdir dir="target/jar"/>
+        <jar destfile="target/jar/Sorting.jar" basedir="target/classes"/>
+    </target>
+</project>
