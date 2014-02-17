@@ -1,15 +1,25 @@
-<project>
-    <target name="clean">
-        <delete dir="target"/>
+<project name="Sorting" basedir="." default="main">
+    
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="target"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="jar.dir" value="${build.dir}/jar"/>
+    <property name="jar.name" value="Sorting.jar"/>
+    
+    <target name="clean" description="Delete Generated Files">
+        <delete dir="${build.dir}"/>
     </target>
     
-    <target name="compile">
-        <mkdir dir="target/classes"/>
-        <javac srcdir="src" destdir="target/classes"/>
+    <target name="compile" description="Compile Source Code">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}"/>
     </target>
     
-    <target name="jar">
-        <mkdir dir="target/jar"/>
-        <jar destfile="target/jar/Sorting.jar" basedir="target/classes"/>
+    <target name="jar" depends="compile" description="Create Jar From Classes">
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/${jar.name}" basedir="${classes.dir}"/>
     </target>
+    
+    <target name="clean-build" depends="clean,jar"/>
+    <target name="main" depends="clean,compile"/>
 </project>
