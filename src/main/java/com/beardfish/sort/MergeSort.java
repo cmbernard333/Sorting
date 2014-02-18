@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class MergeSort implements IInlineSort{
+public class MergeSort implements Sort{
 
 	@Override
 	public <T> void sort(List<T> lst,Comparator<T> comparator) {
