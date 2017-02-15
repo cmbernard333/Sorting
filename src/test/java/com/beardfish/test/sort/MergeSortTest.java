@@ -48,7 +48,7 @@ public class MergeSortTest {
     }
     
     @Test
-    public void sortRandom1000Intergers() {
+    public void sortRandom1000Integers() {
     	List<Integer> randomNumbers = new ArrayList<Integer>(10000);
     	Random random =  new Random();
     	MergeSort mergeSort = new MergeSort();

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Created by christian on 2/17/14.
+ * Created by christian on 2/13/2017.
  */
 public class InsertionSortTest {
 	
@@ -63,7 +63,7 @@ public class InsertionSortTest {
     }
     
     @Test
-    public void sortRandom1000Intergers() {
+    public void sortRandom1000Integers() {
     	List<Integer> randomNumbers = new ArrayList<Integer>(10000);
     	Random random =  new Random();
     	InsertionSort InsertionSort = new InsertionSort();
