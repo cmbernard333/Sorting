@@ -8,7 +8,8 @@ public class MergeSort implements Sort{
 
 	@Override
 	public <T> void sort(List<T> lst,Comparator<T> comparator) {
-		mergeSort(lst,0,lst.size()-1,comparator);
+		List<T> helper = new ArrayList<T>(lst);
+		mergeSort(lst,helper,0,lst.size()-1,comparator);
 	}
 	
 	/**
@@ -17,12 +18,12 @@ public class MergeSort implements Sort{
 	 * @param p
 	 * @param r
 	 */
-	private <T> void mergeSort(List<T> l, int p, int r,Comparator<T> comparator) {
+	private <T> void mergeSort(List<T> l, List<T> helper, int p, int r,Comparator<T> comparator) {
 		if(p<r) {
 			int q = (p+r)/2;
-			mergeSort(l,p,q,comparator);
-			mergeSort(l,q+1,r,comparator);
-			merge(l,p,q,r,comparator);
+			mergeSort(l,helper,p,q,comparator);
+			mergeSort(l,helper,q+1,r,comparator);
+			merge(l,helper,p,q,r,comparator);
 			
 		}
 	}
@@ -35,14 +36,19 @@ public class MergeSort implements Sort{
 	 * @param q -- the middle element of the list
 	 * @param r -- the last element of the list
 	 */
-	private <T> void merge(List<T> l, int p, int q, int r,Comparator<T> comparator) {
-		final List<T> helper = new ArrayList<T>(l);
+	private <T> void merge(List<T> l, List<T> helper, int p, int q, int r, Comparator<T> comparator) {
 		/* index of list 1 */
 		int i = p;
 		/* index of list 2 */
 		int j = q+1;
 		/* index of helper list */
 		int k = p;
+
+		/* create helper list */
+		for(int c = p; c <= r;c++) {
+			helper.add(l.get(c));
+		}
+
 		while(i<=q && j<=r) {
 			if(comparator.compare(helper.get(i),helper.get(j))<=0) {
 				l.set(k, helper.get(i));
