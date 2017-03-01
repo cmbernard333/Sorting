@@ -46,7 +46,7 @@ public class MergeSort implements Sort{
 
 		/* create helper list */
 		for(int c = p; c <= r;c++) {
-			helper.add(l.get(c));
+			helper.set(c,l.get(c));
 		}
 
 		while(i<=q && j<=r) {
