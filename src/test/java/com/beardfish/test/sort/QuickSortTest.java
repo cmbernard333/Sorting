@@ -26,8 +26,8 @@ public class QuickSortTest {
 			add(42);
 			add(44);
 		}};
-		QuickSort QuickSort = new QuickSort();
-		QuickSort.<Integer>sort(numbers, new IntegerComparator());
+		QuickSort qsort = new QuickSort();
+		qsort.<Integer>sort(numbers, new IntegerComparator());
 		System.out.println(numbers.toString());
 	}
 
@@ -41,8 +41,8 @@ public class QuickSortTest {
             add(3);
             add(0);
         }};
-        QuickSort QuickSort = new QuickSort();
-        QuickSort.<Integer>sort(numbers,new IntegerComparator());
+        QuickSort qsort = new QuickSort();
+        qsort.<Integer>sort(numbers,new IntegerComparator());
         System.out.println(numbers.toString());
     }
 
@@ -59,8 +59,8 @@ public class QuickSortTest {
             add("orphan");
             add("xylophone");
         }};
-        QuickSort QuickSort = new QuickSort();
-        QuickSort.<String>sort(strings,new StringComparator());
+        QuickSort qsort = new QuickSort();
+        qsort.<String>sort(strings,new StringComparator());
         System.out.println(strings.toString());
     }
     
@@ -68,12 +68,12 @@ public class QuickSortTest {
     public void sortRandom1000Integers() {
     	List<Integer> randomNumbers = new ArrayList<Integer>(10000);
     	Random random =  new Random();
-    	QuickSort QuickSort = new QuickSort();
+    	QuickSort qsort = new QuickSort();
     	for(int i = 0; i<10000;i++) {
     		randomNumbers.add(random.nextInt());
     	}
     	long start = System.nanoTime();
-    	QuickSort.sort(randomNumbers, new IntegerComparator());
+    	qsort.sort(randomNumbers, new IntegerComparator());
     	double elapsedTime = ((double)(System.nanoTime()-start))/1000000000;
     	System.out.println("Elapsed Time: "+(elapsedTime));
     }
