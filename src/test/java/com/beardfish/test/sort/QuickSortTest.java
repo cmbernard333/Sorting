@@ -65,7 +65,7 @@ public class QuickSortTest {
     }
     
     @Test
-    public void sortRandom1000Integers() {
+    public void sortRandom10000Integers() {
     	List<Integer> randomNumbers = new ArrayList<Integer>(10000);
     	Random random =  new Random();
     	QuickSort qsort = new QuickSort();
@@ -77,4 +77,21 @@ public class QuickSortTest {
     	double elapsedTime = ((double)(System.nanoTime()-start))/1000000000;
     	System.out.println("Elapsed Time: "+(elapsedTime));
     }
+
+    @Test
+    public void sortRandom50Integers() {
+        List<Integer> randomNumbers = new ArrayList<Integer>(10000);
+        Random random =  new Random();
+        QuickSort qsort = new QuickSort();
+        for(int i = 0; i<50;i++) {
+            randomNumbers.add(random.nextInt(100));
+        }
+        long start = System.nanoTime();
+        qsort.sort(randomNumbers, new IntegerComparator());
+        double elapsedTime = ((double)(System.nanoTime()-start))/1000000000;
+        System.out.println(randomNumbers);
+        System.out.println("Elapsed Time: "+(elapsedTime));
+    }
+
+
 }

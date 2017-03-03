@@ -16,12 +16,13 @@ public class QuickSort implements Sort {
     }
 
     public <T> void quickSort(List<T> list, Comparator<T> comparator, int left, int right) {
-        if(left<right) {
+        while(left<right) {
             int pivotIndex = (left+right)/2;
             pivotIndex = partition(list,left,right,pivotIndex,comparator);
             // recursively sort the left and right parts of the array
             this.quickSort(list,comparator,left,pivotIndex-1);
-            this.quickSort(list,comparator,pivotIndex+1,right);
+            
+            left = pivotIndex +1;
         }
     }
 
